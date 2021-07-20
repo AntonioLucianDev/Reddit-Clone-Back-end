@@ -1,0 +1,28 @@
+############# Database Properties ###########################################
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reddit_clone
+    username: postgres
+    password: password
+    initialization-mode: always
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: create-drop
+############# Mail Properties ###########################################
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: apartment.finder.app@gmail.com
+    password: parolanoua
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
+############ JWT Properties #####################
+#jwt:
+ # expiration:
+  # time: 90000

@@ -18,17 +18,28 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Entity
 @Builder
+@Table(name = "subreddits")
 public class Subreddit {
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
+
+
     @NotBlank(message = "Community name is required")
+    @Column(name = "name")
     private String name;
+
     @NotBlank(message = "Description is required")
+    @Column(name = "description")
     private String description;
+
     @OneToMany(fetch = LAZY)
     private List<Post> posts;
+
+    @Column(name = "created_date")
     private Instant createdDate;
+
     @ManyToOne(fetch = LAZY)
     private User user;
 }

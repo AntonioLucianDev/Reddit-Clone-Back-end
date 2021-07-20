@@ -14,14 +14,19 @@ import static javax.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "token")
+@Table(name = "tokens")
 public class VerificationToken {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
+
+    @Column(name = "token")
     private String token;
+
     @OneToOne(fetch = LAZY)
     private User user;
+
+    @Column(name = "expiry_date")
     private Instant expiryDate;
 }

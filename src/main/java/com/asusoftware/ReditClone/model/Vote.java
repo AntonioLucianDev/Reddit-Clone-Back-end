@@ -16,15 +16,20 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Entity
 @Builder
+@Table(name = "votes")
 public class Vote {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long voteId;
+
+    @Column(name = "vote_type")
     private VoteType voteType;
+
     @NotNull
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "postId", referencedColumnName = "postId")
     private Post post;
+
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "userId", referencedColumnName = "userId")
     private User user;
